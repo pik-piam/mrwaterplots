@@ -7,11 +7,17 @@
 #'              containing area in Mha
 #'              for which cell area share is to be calculated
 #'
+#' @import madrat
 #' @importFrom magclass as.magpie getItems
 #' @importFrom madrat toolGetMapping
 #'
 #' @return magpie object in cellular resolution
 #' @author Felicitas Beier
+#'
+#' @examples
+#' \dontrun{
+#' calcOutput("CellAreaShare", aggregate = FALSE)
+#' }
 #'
 #' @export
 

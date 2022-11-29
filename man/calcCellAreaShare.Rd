@@ -19,6 +19,12 @@ This function transforms a cellular magpie object
              with 67420 grid cells to an raster object that can
              be plotted in the chosen projection
 }
+\examples{
+\dontrun{
+calcOutput("CellAreaShare", aggregate = FALSE)
+}
+
+}
 \author{
 Felicitas Beier
 }
