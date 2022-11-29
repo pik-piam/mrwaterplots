@@ -26,7 +26,8 @@ to be transformed to raster}
 
 \item{projection}{Choose projection.
 Currently available options:
-"+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" for EqualEarth projection}
+"+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+for EqualEarth projection}
 
 \item{outputfolder}{Path to which plot should be saved}
 

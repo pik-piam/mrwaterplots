@@ -1,7 +1,7 @@
-Package: mrwaterPlots
+Package: mrwaterplots
 Type: Package
 Title: plotting library for mrwater outputs
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(person("Felicitas", "Beier", email = "beier@pik-potsdam.de", role = c("aut","cre")),
              person("Jens", "Heinke", email = "heinke@pik-potsdam.de", role = "aut"),
              person("Patrick", "von Jeetze", email = "vjeetze@pik-potsdam.de", role = "aut"),
@@ -21,6 +21,7 @@ Imports:
     mrcommons,
     terra,
     raster,
+    sp,
     utils,
     grDevices
 Suggests: 

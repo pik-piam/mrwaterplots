@@ -7,7 +7,8 @@
 #'                     to be transformed to raster
 #' @param projection   Choose projection.
 #'                     Currently available options:
-#'                     "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" for EqualEarth projection
+#'                     "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+#'                     for EqualEarth projection
 #' @param outputfolder Path to which plot should be saved
 #' @param name         Title of plot
 #'                     (default: "name")
@@ -36,18 +37,17 @@
 #' @export
 
 plotMap <- function(x,
-                       projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                       outputfolder = ".\\",
-                       name = "name",
-                       ylim = c(-6500000, 8300000),
-                       xlim = c(-12577316, 15581284),
-                       legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
-                                         "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#045a8d"),
-                       colNA = "#d9d9d9",
-                       legendlimit = c(0, 1),
-                       legendbreaks = seq(0, 1, 0.1),
-                       legendname = "legendname") {
-
+                    projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
+                    outputfolder = ".\\",
+                    name = "name",
+                    ylim = c(-6500000, 8300000),
+                    xlim = c(-12577316, 15581284),
+                    legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
+                                    "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#045a8d"),
+                    colNA = "#d9d9d9",
+                    legendlimit = c(0, 1),
+                    legendbreaks = seq(0, 1, 0.1),
+                    legendname = "legendname") {
   # Get land mask and country borders
   tmp            <- toolPrepareLandMask(projection = projection)
   landMask       <- tmp$landMask
@@ -72,7 +72,7 @@ plotMap <- function(x,
        col = legendcolor,
        colNA = colNA,
        breaks = legendbreaks,
-       add = T)
+       add = TRUE)
   plot(landMask, col = "white", border = "white",
        ylim = ylim, xlim = xlim,  asp = NA,
        axes = FALSE, add = TRUE)
@@ -92,7 +92,7 @@ plotMap <- function(x,
        axis.args     = list(cex.axis = 4, at = legendbreaks,
                             line = 0, tick = FALSE, hadj = 0.5, padj = 0.5),
        smallplot     = c(0.4, 0.75, 0.05, 0.1),
-       add = T)
+       add = TRUE)
 
   dev.off()
 }

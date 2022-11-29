@@ -16,7 +16,7 @@ a <- downloadSource("NaturalEarth")
 
 }
 \seealso{
-[downloadSource()]
+\code{\link[=downloadSource]{downloadSource()}}
 }
 \author{
 Felicitas Beier

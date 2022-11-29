@@ -1,8 +1,8 @@
 # plotting library for mrwater outputs
 
-R package **mrwaterPlots**, version **1.0.0**
+R package **mrwaterplots**, version **1.0.1**
 
-[![CRAN status](https://www.r-pkg.org/badges/version/mrwaterPlots)](https://cran.r-project.org/package=mrwaterPlots)  [![R build status](https://github.com/pik-piam/mrwaterPlots/workflows/check/badge.svg)](https://github.com/pik-piam/mrwaterPlots/actions) [![codecov](https://codecov.io/gh/pik-piam/mrwaterPlots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/mrwaterPlots) 
+[![CRAN status](https://www.r-pkg.org/badges/version/mrwaterplots)](https://cran.r-project.org/package=mrwaterplots)  [![R build status](https://github.com/pik-piam/mrwaterPlots/workflows/check/badge.svg)](https://github.com/pik-piam/mrwaterPlots/actions) [![codecov](https://codecov.io/gh/pik-piam/mrwaterPlots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/mrwaterPlots) 
 
 ## Purpose and Functionality
 
@@ -22,7 +22,7 @@ The additional repository can be made available permanently by adding the line a
 After that the most recent version of the package can be installed using `install.packages`:
 
 ```r 
-install.packages("mrwaterPlots")
+install.packages("mrwaterplots")
 ```
 
 Package updates can be installed using `update.packages` (make sure that the additional repository has been added before running that command):
@@ -37,18 +37,18 @@ In case of questions / problems please contact The package maintainer <beier@pik
 
 ## Citation
 
-To cite package **mrwaterPlots** in publications use:
+To cite package **mrwaterplots** in publications use:
 
-Beier F, Heinke J, von Jeetze P, Dietrich J (2022). _mrwaterPlots: plotting library for mrwater outputs_. R package version 1.0.0, <URL: https://github.com/pik-piam/mrwaterPlots>.
+Beier F, Heinke J, von Jeetze P, Dietrich J (2022). _mrwaterplots: plotting library for mrwater outputs_. R package version 1.0.1, <URL: https://github.com/pik-piam/mrwaterPlots>.
 
 A BibTeX entry for LaTeX users is
 
  ```latex
 @Manual{,
-  title = {mrwaterPlots: plotting library for mrwater outputs},
+  title = {mrwaterplots: plotting library for mrwater outputs},
   author = {Felicitas Beier and Jens Heinke and Patrick {von Jeetze} and Jan Philipp Dietrich},
   year = {2022},
-  note = {R package version 1.0.0},
+  note = {R package version 1.0.1},
   url = {https://github.com/pik-piam/mrwaterPlots},
 }
 ```

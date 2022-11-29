@@ -10,9 +10,10 @@
 #'                   "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 #'                   for EqualEarth projection
 #'
-#' @importFrom magclass as.RasterBrick
+#' @importFrom magclass as.RasterBrick collapseNames
 #' @importFrom raster projectRaster
 #' @importFrom terra crs
+#' @import sp
 #'
 #' @return magpie object in cellular resolution
 #' @author Felicitas Beier, Jens Heinke
@@ -20,7 +21,9 @@
 #' @export
 
 toolRasterTransform <- function(x,
-                                projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs") {
+                                projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs") { # nolint
+  # Remove dimension names
+  x <- collapseNames(x)
 
   # Note: terra cannot transform raster object to Equal-Earth projection yet
   x0  <- as.RasterBrick(x)
