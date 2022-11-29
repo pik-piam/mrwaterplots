@@ -10,6 +10,7 @@ plotMap(
     "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
   outputfolder = ".\\\\",
   name = "name",
+  title = "",
   ylim = c(-6500000, 8300000),
   xlim = c(-12577316, 15581284),
   legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84",
@@ -33,6 +34,8 @@ for EqualEarth projection}
 
 \item{name}{Title of plot
 (default: "name")}
+
+\item{title}{Plot title displayed in the plot}
 
 \item{ylim}{y-axis limits of plot
 (default: c(-6500000, 8300000))}

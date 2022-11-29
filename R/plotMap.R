@@ -12,6 +12,7 @@
 #' @param outputfolder Path to which plot should be saved
 #' @param name         Title of plot
 #'                     (default: "name")
+#' @param title        Plot title displayed in the plot
 #' @param ylim         y-axis limits of plot
 #'                     (default: c(-6500000, 8300000))
 #' @param xlim         x-axis limits of plot
@@ -30,6 +31,8 @@
 #' @importFrom raster projectRaster
 #' @importFrom terra crs
 #' @importFrom grDevices pdf dev.off
+#' @import sp
+#' @import sf
 #'
 #' @return magpie object in cellular resolution
 #' @author Felicitas Beier, Jens Heinke
@@ -40,6 +43,7 @@ plotMap <- function(x,
                     projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                     outputfolder = ".\\",
                     name = "name",
+                    title = "",
                     ylim = c(-6500000, 8300000),
                     xlim = c(-12577316, 15581284),
                     legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
@@ -77,6 +81,7 @@ plotMap <- function(x,
        ylim = ylim, xlim = xlim,  asp = NA,
        axes = FALSE, add = TRUE)
   plot(worldCountries,
+       main = title,
        ylim = ylim, xlim = xlim,  asp = NA,
        axes = FALSE, add = TRUE)
 

@@ -23,7 +23,7 @@ calcCellAreaShare <- function(x) {
   # Transform: square meter -> Mha (1ha = 10000m^2)
   cellarea           <- (111e3 * 0.5) * (111e3 * 0.5) * cos(mapping$lat / 180 * pi) / 1e+10
   cellarea           <- magclass::as.magpie(cellarea, spatial = 1)
-  magclass::getItems(cellarea, dim = 1) <- magclass::getItems(x, dim = 1)
+  magclass::getCells(cellarea) <- magclass::getCells(x)
 
   # Cell area share
   out <- ifelse(cellarea > 0,
