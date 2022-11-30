@@ -58,7 +58,7 @@ for EqualEarth projection}
 (default: "legendname")}
 }
 \value{
-magpie object in cellular resolution
+map as pdf
 }
 \description{
 This function plots a raster object of halfdegree

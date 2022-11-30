@@ -1,14 +1,13 @@
 Package: mrwaterplots
 Type: Package
 Title: plotting library for mrwater outputs
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: c(person("Felicitas", "Beier", email = "beier@pik-potsdam.de", role = c("aut","cre")),
              person("Jens", "Heinke", email = "heinke@pik-potsdam.de", role = "aut"),
              person("Patrick", "von Jeetze", email = "vjeetze@pik-potsdam.de", role = "aut"),
              person("Jan Philipp", "Dietrich", email = "dietrich@pik-potsdam.de", role = "aut"))
-Maintainer: The package maintainer <beier@pik-potsdam.de>
 Description: The mrwaterplots package plots outputs from mrwater library.
-URL: https://github.com/pik-piam/mrwaterPlots
+URL: https://github.com/pik-piam/mrwaterplots
 License: LGPL-3 | file LICENSE
 Date: 2022-11-30
 Depends:
@@ -16,8 +15,6 @@ Depends:
     madrat (>= 1.72),
     magclass (>= 6.0.0)
 Imports:
-    mrwater,
-    mrcommons,
     terra,
     raster,
     sp,

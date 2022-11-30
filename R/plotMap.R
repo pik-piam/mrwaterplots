@@ -34,7 +34,7 @@
 #' @import sp
 #' @import sf
 #'
-#' @return magpie object in cellular resolution
+#' @return map as pdf
 #' @author Felicitas Beier, Jens Heinke
 #'
 #' @export
