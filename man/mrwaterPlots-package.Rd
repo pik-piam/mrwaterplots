@@ -6,7 +6,7 @@
 \alias{mrwaterplots-package}
 \title{mrwaterplots: plotting library for mrwater outputs}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+The mrwaterplots package plots outputs from mrwater library.
 }
 \seealso{
 Useful links:

@@ -1,7 +1,7 @@
 {
   "title": "mrwaterplots: plotting library for mrwater outputs",
-  "version": "1.0.3",
-  "description": "<p>More about what it does (maybe more than one line)\n    Use four spaces when indenting paragraphs within the Description.<\/p>",
+  "version": "1.0.4",
+  "description": "<p>The mrwaterplots package plots outputs from mrwater library.<\/p>",
   "creators": [
     {
       "name": "Beier, Felicitas"
