@@ -8,7 +8,7 @@
 #'              for which cell area share is to be calculated
 #'
 #' @import madrat
-#' @importFrom magclass as.magpie getItems
+#' @importFrom magclass as.magpie getItems getSets
 #' @importFrom madrat toolGetMapping
 #'
 #' @return magpie object in cellular resolution
@@ -35,6 +35,11 @@ calcCellAreaShare <- function(x) {
   out <- ifelse(cellarea > 0,
                   x / cellarea,
                 0)
+
+  # Dimension names
+  getSets(out)["d1.1"] <- "x"
+  getSets(out)["d1.2"] <- "y"
+  getSets(out)["d1.3"] <- "iso"
 
   return(list(x            = out,
               weight       = NULL,

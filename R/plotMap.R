@@ -27,7 +27,7 @@
 #' @param legendname   legend name as character
 #'                     (default: "legendname")
 #'
-#' @importFrom magclass as.RasterBrick
+#' @importFrom magclass as.RasterBrick collapseDim
 #' @importFrom raster projectRaster
 #' @importFrom terra crs
 #' @importFrom grDevices pdf dev.off
@@ -52,12 +52,17 @@ plotMap <- function(x,
                     legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
                     legendname = "legendname") {
+
   # Get land mask and country borders
   tmp            <- toolPrepareLandMask(projection = projection)
   landMask       <- tmp$landMask
   worldCountries <- tmp$worldCountries
 
   # Transform magpie object to raster
+  x                  <- collapseDim(x)
+  getSets(x)["d1.1"] <- "x"
+  getSets(x)["d1.2"] <- "y"
+  getSets(x)["d1.3"] <- "iso"
   x <- toolRasterTransform(x = x,
                            projection = projection)
 
