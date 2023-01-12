@@ -18,7 +18,10 @@ plotMap(
   colNA = "#d9d9d9",
   legendlimit = c(0, 1),
   legendbreaks = seq(0, 1, 0.1),
-  legendname = "legendname"
+  legendname = "legendname",
+  outputtype = "pdf",
+  minVal = NULL,
+  maxVal = NULL
 )
 }
 \arguments{
@@ -56,6 +59,10 @@ for EqualEarth projection}
 
 \item{legendname}{legend name as character
 (default: "legendname")}
+
+\item{minVal}{minimum value at which x should be chopped}
+
+\item{maxVal}{maximum value at which x should be chopped}
 }
 \value{
 map as pdf

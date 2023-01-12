@@ -7,8 +7,7 @@
 #'              containing area in Mha
 #'              for which cell area share is to be calculated
 #'
-#' @import madrat
-#' @importFrom magclass as.magpie getItems getSets
+#' @importFrom magclass as.magpie getItems getSets getCells
 #' @importFrom madrat toolGetMapping
 #'
 #' @return magpie object in cellular resolution

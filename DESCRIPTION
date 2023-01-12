@@ -30,4 +30,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 LazyData: no
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

@@ -26,6 +26,8 @@
 #'                     (default: seq(0, 1, 0.1))
 #' @param legendname   legend name as character
 #'                     (default: "legendname")
+#' @param minVal       minimum value at which x should be chopped
+#' @param maxVal       maximum value at which x should be chopped
 #'
 #' @importFrom magclass as.RasterBrick collapseDim
 #' @importFrom raster projectRaster
@@ -51,8 +53,13 @@ plotMap <- function(x,
                     colNA = "#d9d9d9",
                     legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
-                    legendname = "legendname") {
+                    legendname = "legendname",
+                    outputtype = "pdf",
+                    minVal = NULL, maxVal = NULL) {
 
+  ####################
+  ### Prepare data ###
+  ####################
   # Get land mask and country borders
   tmp            <- toolPrepareLandMask(projection = projection)
   landMask       <- tmp$landMask
@@ -66,9 +73,28 @@ plotMap <- function(x,
   x <- toolRasterTransform(x = x,
                            projection = projection)
 
-  # Plot and save
-  pdf(paste0(outputfolder, name, ".pdf"),
-      width = 26, height = 15)
+  # Chop off min and max values
+  if (!is.null(minVal)) {
+    x[x < minVal]  <- minVal
+  }
+  if (!is.null(maxVal)) {
+    x[x < maxVal]  <- maxVal
+  }
+
+  #####################
+  ### Plot and save ###
+  #####################
+  # Choose output type
+  if (outputtype == "pdf") {
+    pdf(paste0(outputfolder, name, ".pdf"),
+        width = 26, height = 15)
+  } else if (outputtype == "jpeg") {
+    jpeg(paste0(outputfolder, name, ".jpeg"),
+         width = 8, height = 4.5, units = "in", res = 400)
+  } else {
+    stop("Please select output type of graph:
+         `pdf` or `jpeg`")
+  }
 
   # Map plot
   plot(landMask, col = "white", border = "white",
