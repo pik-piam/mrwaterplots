@@ -79,7 +79,7 @@ plotMap <- function(x,
     x[x < minVal]  <- minVal
   }
   if (!is.null(maxVal)) {
-    x[x < maxVal]  <- maxVal
+    x[x >= maxVal]  <- maxVal
   }
 
   #####################
@@ -87,11 +87,26 @@ plotMap <- function(x,
   #####################
   # Choose output type
   if (outputtype == "pdf") {
-    pdf(paste0(outputfolder, name, ".pdf"),
-        width = 26, height = 15)
+
+    smallplotrange <- c(0.4, 0.75, 0.05, 0.1)
+    axisArgs       <- list(cex.axis = 4, at = legendbreaks,
+                           line = 0, tick = FALSE, hadj = 0.5, padj = 0.5)
+    legendArgs     <- list(text = legendname,
+                           side = 3, font = 1, line = 2, cex = 4)
+
+    pdf(paste0(outputfolder, name, ".pdf"), width = 26, height = 15)
+
   } else if (outputtype == "jpeg") {
+
+    smallplotrange <- c(0.4, 0.75, 0.1, 0.15)
+    axisArgs       <- list(cex.axis = 0.8, at = legendbreaks,
+                           line = 0, tick = FALSE, hadj = 0.4, padj = -1.5)
+    legendArgs     <- list(text = legendname,
+                           side = 3, font = 1, line = 0.5, cex = 1)
+
     jpeg(paste0(outputfolder, name, ".jpeg"),
          width = 8, height = 4.5, units = "in", res = 400)
+
   } else {
     stop("Please select output type of graph:
          `pdf` or `jpeg`")
@@ -124,12 +139,11 @@ plotMap <- function(x,
        col           = legendcolor,
        breaks        = legendbreaks,
        colNA         = colNA,
-       legend.args   = list(text = legendname,
-                            side = 3, font = 1, line = 2, cex = 4),
-       axis.args     = list(cex.axis = 4, at = legendbreaks,
-                            line = 0, tick = FALSE, hadj = 0.5, padj = 0.5),
-       smallplot     = c(0.4, 0.75, 0.05, 0.1),
+       legend.args   = legendArgs,
+       axis.args     = axisArgs,
+       smallplot     = smallplotrange,
        add = TRUE)
 
   dev.off()
+
 }
