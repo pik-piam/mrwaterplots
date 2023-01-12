@@ -1,6 +1,6 @@
 {
   "title": "mrwaterplots: plotting library for mrwater outputs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "<p>The mrwaterplots package plots outputs from mrwater library.<\/p>",
   "creators": [
     {

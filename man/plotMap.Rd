@@ -60,6 +60,8 @@ for EqualEarth projection}
 \item{legendname}{legend name as character
 (default: "legendname")}
 
+\item{outputtype}{Output type: pdf or jpeg}
+
 \item{minVal}{minimum value at which x should be chopped}
 
 \item{maxVal}{maximum value at which x should be chopped}

@@ -9,6 +9,7 @@
 #'                     Currently available options:
 #'                     "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 #'                     for EqualEarth projection
+#' @param outputtype   Output type: pdf or jpeg
 #' @param outputfolder Path to which plot should be saved
 #' @param name         Title of plot
 #'                     (default: "name")
@@ -32,7 +33,7 @@
 #' @importFrom magclass as.RasterBrick collapseDim
 #' @importFrom raster projectRaster
 #' @importFrom terra crs
-#' @importFrom grDevices pdf dev.off
+#' @importFrom grDevices pdf dev.off jpeg
 #' @import sp
 #' @import sf
 #'
