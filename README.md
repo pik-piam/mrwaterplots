@@ -1,8 +1,8 @@
 # plotting library for mrwater outputs
 
-R package **mrwaterplots**, version **1.0.8**
+R package **mrwaterplots**, version **1.0.9**
 
-[![CRAN status](https://www.r-pkg.org/badges/version/mrwaterplots)](https://cran.r-project.org/package=mrwaterplots)  [![R build status](https://github.com/pik-piam/mrwaterplots/workflows/check/badge.svg)](https://github.com/pik-piam/mrwaterplots/actions) [![codecov](https://codecov.io/gh/pik-piam/mrwaterplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/mrwaterplots) [![r-universe](https://pik-piam.r-universe.dev/badges/mrwaterplots)](https://pik-piam.r-universe.dev/ui#builds)
+[![CRAN status](https://www.r-pkg.org/badges/version/mrwaterplots)](https://cran.r-project.org/package=mrwaterplots)  [![R build status](https://github.com/pik-piam/mrwaterplots/workflows/check/badge.svg)](https://github.com/pik-piam/mrwaterplots/actions) [![codecov](https://codecov.io/gh/pik-piam/mrwaterplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/mrwaterplots) [![r-universe](https://pik-piam.r-universe.dev/badges/mrwaterplots)](https://pik-piam.r-universe.dev/builds)
 
 ## Purpose and Functionality
 
@@ -38,7 +38,7 @@ In case of questions / problems please contact Felicitas Beier <beier@pik-potsda
 
 To cite package **mrwaterplots** in publications use:
 
-Beier F, Heinke J, von Jeetze P, Dietrich J (2023). _mrwaterplots: plotting library for mrwater outputs_. R package version 1.0.8, <https://github.com/pik-piam/mrwaterplots>.
+Beier F, Heinke J, von Jeetze P, Dietrich J (2023). _mrwaterplots: plotting library for mrwater outputs_. R package version 1.0.9, <https://github.com/pik-piam/mrwaterplots>.
 
 A BibTeX entry for LaTeX users is
 
@@ -47,7 +47,7 @@ A BibTeX entry for LaTeX users is
   title = {mrwaterplots: plotting library for mrwater outputs},
   author = {Felicitas Beier and Jens Heinke and Patrick {von Jeetze} and Jan Philipp Dietrich},
   year = {2023},
-  note = {R package version 1.0.8},
+  note = {R package version 1.0.9},
   url = {https://github.com/pik-piam/mrwaterplots},
 }
 ```
