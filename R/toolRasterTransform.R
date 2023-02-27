@@ -8,10 +8,12 @@
 #' @param projection Choose projection.
 #'                   Currently available options:
 #'                   "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
-#'                   for EqualEarth projection
+#'                   for EqualEarth projection;
+#'                   "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+#'                   for RobinsonProj; and
+#'                   "+proj=longlat +datum=WGS84" for LatLon projection
 #'
 #' @importFrom magclass as.RasterBrick collapseNames
-#' @importFrom raster projectRaster
 #' @importFrom terra crs
 #' @import sp
 #'
@@ -25,9 +27,13 @@ toolRasterTransform <- function(x,
   # Remove dimension names
   x <- collapseNames(x)
 
-  # Note: terra cannot transform raster object to Equal-Earth projection yet
+  # Transform to raster
   x0  <- as.RasterBrick(x)
-  out <- raster::projectRaster(x0, crs = terra::crs(projection), over = TRUE)
+  # Reproject to chosen projection
+  # Note: method "near" chosen (good method for discrete values)
+  # Consider using other method for continuous values
+  out <- terra::project(terra::rast(x0), projection,
+                        method = "near", mask = TRUE)
 
   return(out)
 }

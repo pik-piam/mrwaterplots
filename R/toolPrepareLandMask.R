@@ -5,7 +5,11 @@
 #'
 #' @param projection Choose projection.
 #'                   Currently available options:
-#'                   "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" for EqualEarth projection
+#'                   "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+#'                   for EqualEarth projection;
+#'                   "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+#'                   for RobinsonProj; and
+#'                   "+proj=longlat +datum=WGS84" for LatLon projection
 #'
 #' @importFrom terra vect project as.polygons ext symdif
 #' @importFrom madrat getConfig
@@ -15,8 +19,7 @@
 #'
 #' @export
 
-toolPrepareLandMask <- function(projection =
-                                "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs") {
+toolPrepareLandMask <- function(projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs") { # nolint
 
   ### Handle vector data (country shape file and land mask) with terra package ###
   # Country borders from Natural Earth Data (http://www.naturalearthdata.com/downloads/10m-cultural-vectors/).
