@@ -32,8 +32,8 @@ toolRasterTransform <- function(x,
   # Reproject to chosen projection
   # Note: method "near" chosen (good method for discrete values)
   # Consider using other method for continuous values
-  out <- terra::project(terra::rast(x0), projection,
-                        method = "near", mask = TRUE)
+  out <- raster::projectRaster(terra::rast(x0), projection,
+                        method = "ngb")
 
   return(out)
 }
