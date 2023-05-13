@@ -27,9 +27,9 @@ magpie object in cellular resolution
 }
 \description{
 This function transforms a cellular magpie object
-             with 67420 grid cells to an raster object that can
+             with 67420 grid cells to a raster object that can
              be plotted in the chosen projection
 }
 \author{
-Felicitas Beier, Jens Heinke
+Felicitas Beier
 }

@@ -1,6 +1,6 @@
 #' @title       toolRasterTransform
 #' @description This function transforms a cellular magpie object
-#'              with 67420 grid cells to an raster object that can
+#'              with 67420 grid cells to a raster object that can
 #'              be plotted in the chosen projection
 #'
 #' @param x          MAgPIE object in grid-cellular (67420) resolution
@@ -14,11 +14,10 @@
 #'                   "+proj=longlat +datum=WGS84" for LatLon projection
 #'
 #' @importFrom magclass as.RasterBrick collapseNames
-#' @importFrom terra crs
-#' @import sp
+#' @importFrom terra project rast
 #'
 #' @return magpie object in cellular resolution
-#' @author Felicitas Beier, Jens Heinke
+#' @author Felicitas Beier
 #'
 #' @export
 
@@ -32,8 +31,7 @@ toolRasterTransform <- function(x,
   # Reproject to chosen projection
   # Note: method "near" chosen (good method for discrete values)
   # Consider using other method for continuous values
-  out <- raster::projectRaster(terra::rast(x0), projection,
-                        method = "ngb")
+  out <- terra::project(terra::rast(x0), projection, method = "near")
 
   return(out)
 }

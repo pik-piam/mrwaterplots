@@ -9,3 +9,4 @@
 ^\.github$
 ^.*\.zenodo.json$
 ^Makefile$
+^.*CITATION.cff$
