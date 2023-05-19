@@ -19,7 +19,7 @@ plotMap(
   legendlimit = c(0, 1),
   legendbreaks = seq(0, 1, 0.1),
   legendname = "legendname",
-  outputtype = "pdf",
+  outputtype = "png",
   minVal = NULL,
   maxVal = NULL
 )
@@ -70,7 +70,7 @@ for RobinsonProj; and
 \item{maxVal}{maximum value at which x should be chopped}
 }
 \value{
-map as pdf
+map as pdf, jpg or png
 }
 \description{
 This function plots a raster object of halfdegree

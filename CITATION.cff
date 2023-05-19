@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: If you use this software, please cite it using the metadata from this file.
 type: software
 title: 'mrwaterplots: plotting library for mrwater outputs'
-version: 1.0.12
-date-released: '2023-05-13'
+version: 1.0.13
+date-released: '2023-05-19'
 abstract: The mrwaterplots package plots outputs from mrwater library.
 authors:
 - family-names: Beier

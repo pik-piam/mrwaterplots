@@ -1,7 +1,7 @@
 Package: mrwaterplots
 Type: Package
 Title: plotting library for mrwater outputs
-Version: 1.0.12
+Version: 1.0.13
 Authors@R: c(person("Felicitas", "Beier", email = "beier@pik-potsdam.de", role = c("aut","cre")),
              person("Jens", "Heinke", email = "heinke@pik-potsdam.de", role = "aut"),
              person("Patrick", "von Jeetze", email = "vjeetze@pik-potsdam.de", role = "aut"),
@@ -9,14 +9,13 @@ Authors@R: c(person("Felicitas", "Beier", email = "beier@pik-potsdam.de", role =
 Description: The mrwaterplots package plots outputs from mrwater library.
 URL: https://github.com/pik-piam/mrwaterplots
 License: LGPL-3 | file LICENSE
-Date: 2023-05-13
+Date: 2023-05-19
 Depends:
     R (>= 2.10.0),
     madrat (>= 1.72),
     magclass (>= 6.0.0)
 Imports:
     terra,
-    raster,
     sp,
     sf,
     utils,

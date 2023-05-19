@@ -10,8 +10,12 @@
 #'                   "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 #'                   for EqualEarth projection;
 #'                   "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
-#'                   for RobinsonProj; and
-#'                   "+proj=longlat +datum=WGS84" for LatLon projection
+#'                   for RobinsonProj;
+#'                   "+proj=moll"
+#'                   for Mollweide;
+#'                   and
+#'                   "+proj=longlat +datum=WGS84"
+#'                   for LatLon projection
 #'
 #' @importFrom magclass as.RasterBrick collapseNames
 #' @importFrom terra project rast

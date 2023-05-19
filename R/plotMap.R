@@ -34,13 +34,11 @@
 #' @param maxVal       maximum value at which x should be chopped
 #'
 #' @importFrom magclass as.RasterBrick collapseDim
-#' @importFrom raster projectRaster
-#' @importFrom terra crs
-#' @importFrom grDevices pdf dev.off jpeg
+#' @importFrom grDevices jpeg png pdf dev.off
 #' @import sp
 #' @import sf
 #'
-#' @return map as pdf
+#' @return map as pdf, jpg or png
 #' @author Felicitas Beier, Jens Heinke
 #'
 #' @export
@@ -58,7 +56,7 @@ plotMap <- function(x,
                     legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
                     legendname = "legendname",
-                    outputtype = "pdf",
+                    outputtype = "png",
                     minVal = NULL, maxVal = NULL) {
 
   ####################
@@ -91,61 +89,62 @@ plotMap <- function(x,
   # Choose output type
   if (outputtype == "pdf") {
 
-    smallplotrange <- c(0.4, 0.75, 0.05, 0.1)
-    axisArgs       <- list(cex.axis = 4, at = legendbreaks,
-                           line = 0, tick = FALSE, hadj = 0.5, padj = 0.5)
-    legendArgs     <- list(text = legendname,
-                           side = 3, font = 1, line = 2, cex = 4)
+    legendtextsize <- 2
 
     pdf(paste0(outputfolder, name, ".pdf"), width = 26, height = 15)
 
   } else if (outputtype == "jpeg") {
 
-    smallplotrange <- c(0.4, 0.75, 0.1, 0.15)
-    axisArgs       <- list(cex.axis = 0.8, at = legendbreaks,
-                           line = 0, tick = FALSE, hadj = 0.4, padj = -1.5)
-    legendArgs     <- list(text = legendname,
-                           side = 3, font = 1, line = 0.5, cex = 1)
+    legendtextsize <- 2
 
     jpeg(paste0(outputfolder, name, ".jpeg"),
          width = 8, height = 4.5, units = "in", res = 400)
 
+
+  } else if (outputtype == "png") {
+
+    legendtextsize <- 2
+
+    png(paste0(outputfolder, name, ".png"),
+         width = 4000, height = 2200, units = "px", res = 200)
+
   } else {
     stop("Please select output type of graph:
-         `pdf` or `jpeg`")
+         `pdf`, `png` or `jpeg`")
   }
 
   # Map plot
-  plot(landMask, col = "white", border = "white",
-       ylim = ylim, xlim = xlim, asp = NA,
-       axes = FALSE)
-  plot(x, border = "white",
-       ylim = ylim, xlim = xlim,  asp = NA,
-       axes = FALSE,
-       legend = FALSE,
-       col = legendcolor,
-       colNA = colNA,
-       breaks = legendbreaks,
-       add = TRUE)
-  plot(landMask, col = "white", border = "white",
-       ylim = ylim, xlim = xlim,  asp = NA,
-       axes = FALSE, add = TRUE)
-  plot(worldCountries,
-       main = title,
-       ylim = ylim, xlim = xlim,  asp = NA,
-       axes = FALSE, add = TRUE)
+  terra::plot(landMask, col = "white", border = "white",
+              ylim = ylim, xlim = xlim, asp = NA,
+              axes = FALSE)
+  terra::plot(x, border = "white",
+              ylim = ylim, xlim = xlim,  asp = NA,
+              axes = FALSE,
+              legend = FALSE,
+              col = legendcolor,
+              colNA = colNA,
+              breaks = legendbreaks,
+              add = TRUE)
+  terra::plot(landMask, col = "white", border = "white",
+              ylim = ylim, xlim = xlim,  asp = NA,
+              axes = FALSE, add = TRUE)
+  terra::plot(worldCountries,
+              ylim = ylim, xlim = xlim,  asp = NA,
+              axes = FALSE, add = TRUE)
 
   # Legend
-  plot(x,
-       legend.only   = TRUE,
-       horizontal    = TRUE,
-       col           = legendcolor,
-       breaks        = legendbreaks,
-       colNA         = colNA,
-       legend.args   = legendArgs,
-       axis.args     = axisArgs,
-       smallplot     = smallplotrange,
-       add = TRUE)
+  terra::plot(x,
+              ylim = ylim, xlim = xlim, asp = NA, axes = FALSE, add = TRUE,
+              col = legendcolor,
+              range = legendlimit,
+              legend.only = TRUE,
+              plg = list(title = "Share Fulfilled",
+                         horiz = FALSE,   # Legend orientation
+                         title.cex = legendtextsize, # Legend title size
+                         cex = legendtextsize,       # Legend text size
+                         ext = c(xlim[1], xlim[1] + 1000000,
+                                 ylim[1], 0), # Legend position
+                         at = legendbreaks))
 
   dev.off()
 
