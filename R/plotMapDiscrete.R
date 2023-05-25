@@ -1,4 +1,4 @@
-#' @title       plotMap
+#' @title       plotMapDiscrete
 #' @description This function plots a raster object of halfdegree
 #'              resolution (with 67420 grid cells)
 #'              and saves it as PDF
@@ -43,7 +43,7 @@
 #'
 #' @export
 
-plotMap <- function(x,
+plotMapDiscrete <- function(x,
                     projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
                     outputfolder = ".\\",
                     name = "name",
@@ -58,6 +58,12 @@ plotMap <- function(x,
                     legendname = "legendname",
                     outputtype = "png",
                     minVal = NULL, maxVal = NULL) {
+  # Legendarguments
+  legend <- NULL
+  for (i in seq_along(legendcolor)) {
+    tmp <- paste0(legendbreaks[i], " - <", legendbreaks[i + 1])
+    legend <- c(legend, tmp)
+  }
 
   ####################
   ### Prepare data ###
@@ -133,18 +139,13 @@ plotMap <- function(x,
               axes = FALSE, add = TRUE)
 
   # Legend
-  terra::plot(x,
-              ylim = ylim, xlim = xlim, asp = NA, axes = FALSE, add = TRUE,
-              col = legendcolor,
-              range = legendlimit,
-              legend.only = TRUE,
-              plg = list(title = legendname,
-                         horiz = FALSE,   # Legend orientation
-                         title.cex = legendtextsize, # Legend title size
-                         cex = legendtextsize,       # Legend text size
-                         ext = c(xlim[[1]], xlim[[1]] + 1000000,
-                                 ylim[[1]], 0), # Legend position
-                         at = legendbreaks))
+  legend(x = xlim[[1]], y = 0, # legend position
+         bty = "n",
+         pch = 22, col = "black", # shape of legend elements
+         legend = legend,       # legendtext
+         fill = legendcolor,    # legendcolor
+         title = legendname,    # legentitle
+         cex = legendtextsize)  # legendsize
 
   dev.off()
 
