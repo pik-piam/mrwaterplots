@@ -28,6 +28,8 @@
 #'                     (default: c(0, 1))
 #' @param legendbreaks vector of legend breaks
 #'                     (default: seq(0, 1, 0.1))
+#' @param legend       legend element names (if non-numeric characters shall be returned).
+#'                     (default: NULL, then legendbreaks defines displayed legend elements)
 #' @param legendname   legend name as character
 #'                     (default: "legendname")
 #' @param minVal       minimum value at which x should be chopped
@@ -55,14 +57,16 @@ plotMapDiscrete <- function(x,
                     colNA = "#d9d9d9",
                     legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
+                    legend = NULL,
                     legendname = "legendname",
                     outputtype = "png",
                     minVal = NULL, maxVal = NULL) {
-  # Legendarguments
-  legend <- NULL
-  for (i in seq_along(legendcolor)) {
-    tmp <- paste0(legendbreaks[i], " - <", legendbreaks[i + 1])
-    legend <- c(legend, tmp)
+  # Legend arguments
+  if (is.null(legend)) {
+    for (i in seq_along(legendcolor)) {
+      tmp <- paste0(legendbreaks[i], " - <", legendbreaks[i + 1])
+      legend <- c(legend, tmp)
+    }
   }
 
   ####################
