@@ -24,8 +24,6 @@
 #' @param legendcolor  vector of colors
 #' @param colNA        color for NAs
 #'                     (default: "#d9d9d9" (gray))
-#' @param legendlimit  vector with min and max of legend
-#'                     (default: c(0, 1))
 #' @param legendbreaks vector of legend breaks
 #'                     (default: seq(0, 1, 0.1))
 #' @param legend       legend element names (if non-numeric characters shall be returned).
@@ -55,7 +53,6 @@ plotMapDiscrete <- function(x,
                     legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
                                     "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#045a8d"),
                     colNA = "#d9d9d9",
-                    legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
                     legend = NULL,
                     legendname = "legendname",
@@ -143,7 +140,7 @@ plotMapDiscrete <- function(x,
               axes = FALSE, add = TRUE)
 
   # Legend
-  legend(x = xlim[[1]], y = 0, # legend position
+  legend(x = xlim[[1]], y = 0, # legend position (adjust further by inset?)
          bty = "n",
          pch = 22, col = "black", # shape of legend elements
          legend = legend,       # legendtext
