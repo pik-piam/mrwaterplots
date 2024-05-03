@@ -106,7 +106,7 @@ plotMap <- function(x,
     legendtextsize <- 2
 
     png(paste0(outputfolder, name, ".png"),
-         width = 4000, height = 2200, units = "px", res = 200)
+        width = 4000, height = 2200, units = "px", res = 200)
 
   } else {
     stop("Please select output type of graph:
@@ -145,6 +145,9 @@ plotMap <- function(x,
                          ext = c(xlim[[1]], xlim[[1]] + 1000000,
                                  ylim[[1]], 0), # Legend position
                          at = legendbreaks))
+
+  # Title
+  title(title,  line = 2, col.main = "black", cex.main = 1.5)
 
   dev.off()
 

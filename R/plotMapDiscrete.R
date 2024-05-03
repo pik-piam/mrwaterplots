@@ -44,20 +44,20 @@
 #' @export
 
 plotMapDiscrete <- function(x,
-                    projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                    outputfolder = ".\\",
-                    name = "name",
-                    title = "",
-                    ylim = c(-6500000, 8300000),
-                    xlim = c(-12577316, 15581284),
-                    legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
-                                    "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#045a8d"),
-                    colNA = "#d9d9d9",
-                    legendbreaks = seq(0, 1, 0.1),
-                    legend = NULL,
-                    legendname = "legendname",
-                    outputtype = "png",
-                    minVal = NULL, maxVal = NULL) {
+                            projection = "+proj=eqearth +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs", # nolint: line_length_linter.
+                            outputfolder = ".\\",
+                            name = "name",
+                            title = "",
+                            ylim = c(-6500000, 8300000),
+                            xlim = c(-12577316, 15581284),
+                            legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
+                                            "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#045a8d"),
+                            colNA = "#d9d9d9",
+                            legendbreaks = seq(0, 1, 0.1),
+                            legend = NULL,
+                            legendname = "legendname",
+                            outputtype = "png",
+                            minVal = NULL, maxVal = NULL) {
   # Legend arguments
   if (is.null(legend)) {
     for (i in seq_along(legendcolor)) {
@@ -113,7 +113,7 @@ plotMapDiscrete <- function(x,
     legendtextsize <- 2
 
     png(paste0(outputfolder, name, ".png"),
-         width = 4000, height = 2200, units = "px", res = 200)
+        width = 4000, height = 2200, units = "px", res = 200)
 
   } else {
     stop("Please select output type of graph:
@@ -147,6 +147,9 @@ plotMapDiscrete <- function(x,
          fill = legendcolor,    # legendcolor
          title = legendname,    # legentitle
          cex = legendtextsize)  # legendsize
+
+  # Title
+  title(title,  line = 2, col.main = "black", cex.main = 1.5)
 
   dev.off()
 
