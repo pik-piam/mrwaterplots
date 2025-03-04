@@ -15,9 +15,8 @@ for which cell area share is to be calculated}
 magpie object in cellular resolution
 }
 \description{
-This function transforms a cellular magpie object
-             with 67420 grid cells to an raster object that can
-             be plotted in the chosen projection
+This function calculates the share of total grid cell area
+             for a given cellular magpie object with 67420 grid cells
 }
 \author{
 Felicitas Beier

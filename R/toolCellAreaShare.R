@@ -1,7 +1,6 @@
 #' @title       toolCellAreaShare
-#' @description This function transforms a cellular magpie object
-#'              with 67420 grid cells to an raster object that can
-#'              be plotted in the chosen projection
+#' @description This function calculates the share of total grid cell area
+#'              for a given cellular magpie object with 67420 grid cells
 #'
 #' @param x     MAgPIE object in grid-cellular (67420) resolution
 #'              containing area in Mha
@@ -20,7 +19,7 @@ toolCellAreaShare <- function(x) {
 
   # Calculate cell area (in Mha)
   mapping            <- madrat::toolGetMapping("LPJ_CellBelongingsToCountries.csv",
-                                       type = "cell", where = "mappingfolder")
+                                               type = "cell", where = "mappingfolder")
   # Transform: square meter -> Mha (1ha = 10000m^2)
   cellarea           <- (111e3 * 0.5) * (111e3 * 0.5) * cos(mapping$lat / 180 * pi) / 1e+10
   cellarea           <- magclass::as.magpie(cellarea, spatial = 1)
@@ -28,7 +27,7 @@ toolCellAreaShare <- function(x) {
 
   # Cell area share
   out <- ifelse(cellarea > 0,
-                  x / cellarea,
+                x / cellarea,
                 0)
 
   # Dimension names
