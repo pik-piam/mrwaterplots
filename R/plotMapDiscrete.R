@@ -17,6 +17,7 @@
 #' @param name         Title of plot
 #'                     (default: "name")
 #' @param title        Plot title displayed in the plot
+#' @param titlesize    Textsize of plot title
 #' @param ylim         y-axis limits of plot
 #'                     (default: c(-6500000, 8300000))
 #' @param xlim         x-axis limits of plot
@@ -30,11 +31,13 @@
 #'                     (default: NULL, then legendbreaks defines displayed legend elements)
 #' @param legendname   legend name as character
 #'                     (default: "legendname")
+#' @param legendtextsize text size of legend text
 #' @param minVal       minimum value at which x should be chopped
 #' @param maxVal       maximum value at which x should be chopped
 #'
 #' @importFrom magclass as.RasterBrick collapseDim
 #' @importFrom grDevices jpeg png pdf dev.off
+#' @importFrom stats median
 #' @import sp
 #' @import sf
 #'
@@ -48,6 +51,7 @@ plotMapDiscrete <- function(x,
                             outputfolder = ".\\",
                             name = "name",
                             title = "",
+                            titlesize = 3,
                             ylim = c(-6500000, 8300000),
                             xlim = c(-12577316, 15581284),
                             legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
@@ -56,6 +60,7 @@ plotMapDiscrete <- function(x,
                             legendbreaks = seq(0, 1, 0.1),
                             legend = NULL,
                             legendname = "legendname",
+                            legendtextsize = 2,
                             outputtype = "png",
                             minVal = NULL, maxVal = NULL) {
   # Legend arguments
@@ -96,21 +101,15 @@ plotMapDiscrete <- function(x,
   # Choose output type
   if (outputtype == "pdf") {
 
-    legendtextsize <- 2
-
     pdf(paste0(outputfolder, name, ".pdf"), width = 26, height = 15)
 
   } else if (outputtype == "jpeg") {
-
-    legendtextsize <- 1
 
     jpeg(paste0(outputfolder, name, ".jpeg"),
          width = 8, height = 4.5, units = "in", res = 400)
 
 
   } else if (outputtype == "png") {
-
-    legendtextsize <- 2
 
     png(paste0(outputfolder, name, ".png"),
         width = 4000, height = 2200, units = "px", res = 200)
@@ -140,7 +139,8 @@ plotMapDiscrete <- function(x,
               axes = FALSE, add = TRUE)
 
   # Legend
-  legend(x = xlim[[1]], y = 0, # legend position (adjust further by inset?)
+  legend(x = xlim[[1]],
+         y = median(ylim),
          bty = "n",
          pch = 22, col = "black", # shape of legend elements
          legend = legend,       # legendtext
@@ -149,7 +149,7 @@ plotMapDiscrete <- function(x,
          cex = legendtextsize)  # legendsize
 
   # Title
-  title(title,  line = 2, col.main = "black", cex.main = 1.5)
+  title(title, line = 2, col.main = "black", cex.main = titlesize)
 
   dev.off()
 

@@ -17,6 +17,7 @@
 #' @param name         Title of plot
 #'                     (default: "name")
 #' @param title        Plot title displayed in the plot
+#' @param titlesize    Text size of plot title
 #' @param ylim         y-axis limits of plot
 #'                     (default: c(-6500000, 8300000))
 #' @param xlim         x-axis limits of plot
@@ -30,6 +31,7 @@
 #'                     (default: seq(0, 1, 0.1))
 #' @param legendname   legend name as character
 #'                     (default: "legendname")
+#' @param legendtextsize text size of legendtext
 #' @param minVal       minimum value at which x should be chopped
 #' @param maxVal       maximum value at which x should be chopped
 #'
@@ -48,6 +50,7 @@ plotMap <- function(x,
                     outputfolder = ".\\",
                     name = "name",
                     title = "",
+                    titlesize = 3,
                     ylim = c(-6500000, 8300000),
                     xlim = c(-12577316, 15581284),
                     legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59",
@@ -56,6 +59,7 @@ plotMap <- function(x,
                     legendlimit = c(0, 1),
                     legendbreaks = seq(0, 1, 0.1),
                     legendname = "legendname",
+                    legendtextsize = 2,
                     outputtype = "png",
                     minVal = NULL, maxVal = NULL) {
 
@@ -89,21 +93,15 @@ plotMap <- function(x,
   # Choose output type
   if (outputtype == "pdf") {
 
-    legendtextsize <- 2
-
     pdf(paste0(outputfolder, name, ".pdf"), width = 26, height = 15)
 
   } else if (outputtype == "jpeg") {
-
-    legendtextsize <- 1
 
     jpeg(paste0(outputfolder, name, ".jpeg"),
          width = 8, height = 4.5, units = "in", res = 400)
 
 
   } else if (outputtype == "png") {
-
-    legendtextsize <- 2
 
     png(paste0(outputfolder, name, ".png"),
         width = 4000, height = 2200, units = "px", res = 200)
@@ -147,7 +145,7 @@ plotMap <- function(x,
                          at = legendbreaks))
 
   # Title
-  title(title,  line = 2, col.main = "black", cex.main = 1.5)
+  title(title,  line = 2, col.main = "black", cex.main = titlesize)
 
   dev.off()
 

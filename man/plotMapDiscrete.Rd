@@ -11,6 +11,7 @@ plotMapDiscrete(
   outputfolder = ".\\\\",
   name = "name",
   title = "",
+  titlesize = 3,
   ylim = c(-6500000, 8300000),
   xlim = c(-12577316, 15581284),
   legendcolor = c("#7f0000", "#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84",
@@ -19,6 +20,7 @@ plotMapDiscrete(
   legendbreaks = seq(0, 1, 0.1),
   legend = NULL,
   legendname = "legendname",
+  legendtextsize = 2,
   outputtype = "png",
   minVal = NULL,
   maxVal = NULL
@@ -43,6 +45,8 @@ for RobinsonProj; and
 
 \item{title}{Plot title displayed in the plot}
 
+\item{titlesize}{Textsize of plot title}
+
 \item{ylim}{y-axis limits of plot
 (default: c(-6500000, 8300000))}
 
@@ -62,6 +66,8 @@ for RobinsonProj; and
 
 \item{legendname}{legend name as character
 (default: "legendname")}
+
+\item{legendtextsize}{text size of legend text}
 
 \item{outputtype}{Output type: pdf or jpeg}
 
