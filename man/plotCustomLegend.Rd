@@ -12,7 +12,10 @@ plotCustomLegend(
   legendPosX = 0.5,
   legendPosY = 0.15,
   boxWidth = 0.4,
-  boxHeight = 0.05
+  boxHeight = 0.05,
+  textCex = 1.2,
+  titleCex = 1.4,
+  textOffset = 0.02
 )
 }
 \arguments{
@@ -43,6 +46,12 @@ is produced (e.g., (xlim[2] - xlim[1]) * 0.3).}
 \item{boxHeight}{Controls the individual row height
 Note: should be set relative to xlim and ylim of plot for which legend
 is produced (e.g., (ylim[2] - ylim[1]) * 0.025).}
+
+\item{textCex}{Font size}
+
+\item{titleCex}{Legend title size}
+
+\item{textOffset}{Offset between legend text and legend box}
 }
 \value{
 legend to be added on previously plotted graph

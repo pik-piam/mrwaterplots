@@ -80,7 +80,7 @@ map as pdf, jpg or png
 }
 \description{
 This function plots a raster object of halfdegree
-             resolution (with 67420 grid cells)
+             resolution (with 67420 grid cells) as world map
              and saves it as PDF
 }
 \author{

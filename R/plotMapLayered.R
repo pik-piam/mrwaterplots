@@ -104,7 +104,7 @@ plotMapLayered <- function(x,
   }
 
   # Map plot
-  withr::with_par(list(mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0)), {
+  withr::with_par(list(mar = c(0, 0, 8, 0), oma = c(0, 0, 0, 0)), {
 
     terra::plot(landMask, col = "white", border = "white",
                 ylim = ylim, xlim = xlim, asp = NA,
@@ -169,10 +169,13 @@ plotMapLayered <- function(x,
                      legendPosX = mean(xlim),
                      legendPosY = ylim[1] + (ylim[2] - ylim[1]) * 0.05,
                      boxWidth = (xlim[2] - xlim[1]) * 0.3,
-                     boxHeight = (ylim[2] - ylim[1]) * 0.025)
+                     boxHeight = (ylim[2] - ylim[1]) * 0.025,
+                     textCex = 1.4,
+                     titleCex = 1.6,
+                     textOffset = 0.1)
 
     # Title
-    title(title, line = 2, col.main = "black", cex.main = 1.5)
+    title(title, line = 5.5, col.main = "black", cex.main = 3)
   })
   dev.off()
 }

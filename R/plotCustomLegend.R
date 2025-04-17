@@ -21,6 +21,9 @@
 #' @param boxHeight    Controls the individual row height
 #'                     Note: should be set relative to xlim and ylim of plot for which legend
 #'                     is produced (e.g., (ylim[2] - ylim[1]) * 0.025).
+#' @param textCex      Font size
+#' @param titleCex     Legend title size
+#' @param textOffset   Offset between legend text and legend box
 #'
 #'
 #' @return legend to be added on previously plotted graph
@@ -31,7 +34,8 @@
 plotCustomLegend <- function(ticks, colorVectors, boxTitles,
                              legendTitle = "legend title (unit)",
                              legendPosX = 0.5, legendPosY = 0.15,
-                             boxWidth = 0.4, boxHeight = 0.05) {
+                             boxWidth = 0.4, boxHeight = 0.05,
+                             textCex = 1.2, titleCex = 1.4, textOffset = 0.02) {
   # Check that each color scale has exactly `length(ticks) - 1` colors
   for (i in seq_along(colorVectors)) {
     if (length(colorVectors[[i]]) != (length(ticks) - 1)) {
@@ -50,10 +54,10 @@ plotCustomLegend <- function(ticks, colorVectors, boxTitles,
   startY <- legendPosY + (totHeight / 2)  # Start at the upper row
   yTick  <- legendPosY - rowHeight * 1.5  # Move ticks further below the lowest row
 
-  # ---- Add the overall legend title ----
+  # Legend title
   if (!is.null(legendTitle)) {
     text(legendPosX + boxWidth / 2, startY + rowHeight * 1.5,
-         labels = legendTitle, cex = 1.2, font = 2, adj = c(0.5, 0))
+         labels = legendTitle, cex = titleCex, font = 2, adj = c(0.5, 0))
   }
 
   # Loop through each color scale (row)
@@ -68,12 +72,22 @@ plotCustomLegend <- function(ticks, colorVectors, boxTitles,
            col = colors[i], border = "black")
     }
 
-    # Add title to the left of each row
-    text(legendPosX - 0.05, yPos - rowHeight / 2, boxTitles[row], cex = 1, font = 1, adj = 1)
+    # Row labels
+    text(legendPosX - textOffset, yPos - rowHeight / 2,
+         boxTitles[row], cex = textCex, font = 1, adj = 1)
+  }
+
+  # Dynamically reduce label clutter
+  if (length(ticks) > 6) {
+    tickLabels <- ifelse(seq_along(ticks) %% 2 == 1,
+                         format(ticks, digits = 2), "")
+  } else {
+    tickLabels <- format(ticks, digits = 2)
   }
 
   # Add tick labels below all rows
   for (i in seq_along(ticks)) {
-    text(legendPosX + (i - 1) * boxWidth / noBreaks, yTick, labels = ticks[i], adj = c(0.5, 1))
+    text(legendPosX + (i - 1) * boxWidth / noBreaks, yTick,
+         labels = tickLabels[i], adj = c(0.5, 1), cex = textCex)
   }
 }

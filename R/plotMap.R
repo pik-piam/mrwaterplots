@@ -1,6 +1,6 @@
 #' @title       plotMap
 #' @description This function plots a raster object of halfdegree
-#'              resolution (with 67420 grid cells)
+#'              resolution (with 67420 grid cells) as world map
 #'              and saves it as PDF
 #'
 #' @param x            MAgPIE object in grid-cellular (67420) resolution
