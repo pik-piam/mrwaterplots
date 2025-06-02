@@ -90,13 +90,15 @@ plotMapLayered <- function(x,
   } else if (outputtype == "jpeg") {
 
     jpeg(paste0(outputfolder, name, ".jpeg"),
-         width = 8, height = 4.5, units = "in", res = 400)
+         width = 8, height = 4.5, units = "in",
+         res = 400)
 
 
   } else if (outputtype == "png") {
 
     png(paste0(outputfolder, name, ".png"),
-        width = 4000, height = 2200, units = "px", res = 200)
+        width = 4000, height = 2200, units = "px",
+        res = 200)
 
   } else {
     stop("Please select output type of graph:
@@ -166,13 +168,13 @@ plotMapLayered <- function(x,
                      colorVectors = legendcolor,
                      boxTitles = legendtitles,
                      legendTitle = legendname,
-                     legendPosX = mean(xlim),
-                     legendPosY = ylim[1] + (ylim[2] - ylim[1]) * 0.05,
-                     boxWidth = (xlim[2] - xlim[1]) * 0.3,
-                     boxHeight = (ylim[2] - ylim[1]) * 0.025,
-                     textCex = 1.4,
-                     titleCex = 1.6,
-                     textOffset = 0.1)
+                     legendPosX = mean(xlim) - (xlim[2] - xlim[1]) * 0.1,
+                     legendPosY = ylim[1] + (ylim[2] - ylim[1]) * 0.1,
+                     boxWidth = (xlim[2] - xlim[1]) * 0.4,
+                     boxHeight = (ylim[2] - ylim[1]) * 0.035,
+                     textCex = 1.8,
+                     titleCex = 2,
+                     textOffset = 7)
 
     # Title
     title(title, line = 5.5, col.main = "black", cex.main = 3)

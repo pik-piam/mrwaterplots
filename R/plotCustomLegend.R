@@ -56,7 +56,7 @@ plotCustomLegend <- function(ticks, colorVectors, boxTitles,
 
   # Legend title
   if (!is.null(legendTitle)) {
-    text(legendPosX + boxWidth / 2, startY + rowHeight * 1.5,
+    text(legendPosX + boxWidth / 2, startY + rowHeight * 0.9,
          labels = legendTitle, cex = titleCex, font = 2, adj = c(0.5, 0))
   }
 
