@@ -112,6 +112,25 @@ plotMapLayered <- function(x,
                 ylim = ylim, xlim = xlim, asp = NA,
                 axes = FALSE)
 
+    if (!is.null(naObject)) {
+      # Transform magpie object to raster
+      naObject                  <- collapseDim(naObject)
+      getSets(naObject)["d1.1"] <- "x"
+      getSets(naObject)["d1.2"] <- "y"
+      getSets(naObject)["d1.3"] <- "iso"
+      naObject <- toolRasterTransform(x = naObject,
+                                      projection = projection)
+      # grey mask for NA's
+      terra::plot(naObject, bg = "transparent", border = "transparent",
+                  ylim = ylim, xlim = xlim, asp = NA,
+                  axes = FALSE,
+                  legend = FALSE,
+                  col = c("transparent", "#d9d9d9"),
+                  breaks = c(0, 0.5, 1),
+                  colNA = NA,
+                  add = TRUE)
+    }
+
     for (i in seq(1, length(x), 1)) {
       # Transform magpie object to raster
       plotObject <- collapseDim(x[[i]])
@@ -138,24 +157,6 @@ plotMapLayered <- function(x,
                   colNA = NA,
                   add = TRUE)
     }
-    if (!is.null(naObject)) {
-      # Transform magpie object to raster
-      naObject                  <- collapseDim(naObject)
-      getSets(naObject)["d1.1"] <- "x"
-      getSets(naObject)["d1.2"] <- "y"
-      getSets(naObject)["d1.3"] <- "iso"
-      naObject <- toolRasterTransform(x = naObject,
-                                      projection = projection)
-      # grey mask for NA's
-      terra::plot(naObject, bg = "transparent", border = "white",
-                  ylim = ylim, xlim = xlim, asp = NA,
-                  axes = FALSE,
-                  legend = FALSE,
-                  col = c("transparent", "#d9d9d9"),
-                  breaks = c(0, 0.5, 1),
-                  colNA = NA,
-                  add = TRUE)
-    }
     terra::plot(landMask, col = "white", border = "white",
                 ylim = ylim, xlim = xlim,  asp = NA,
                 axes = FALSE, add = TRUE)
@@ -171,10 +172,10 @@ plotMapLayered <- function(x,
                      legendPosX = mean(xlim) - (xlim[2] - xlim[1]) * 0.1,
                      legendPosY = ylim[1] + (ylim[2] - ylim[1]) * 0.1,
                      boxWidth = (xlim[2] - xlim[1]) * 0.4,
-                     boxHeight = (ylim[2] - ylim[1]) * 0.035,
-                     textCex = 1.8,
-                     titleCex = 2,
-                     textOffset = 7)
+                     boxHeight = (ylim[2] - ylim[1]) * 0.04,
+                     textCex = 2.5,
+                     titleCex = 3,
+                     textOffset = 5)
 
     # Title
     title(title, line = 5.5, col.main = "black", cex.main = 3)

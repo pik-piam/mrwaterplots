@@ -78,7 +78,7 @@ plotCustomLegend <- function(ticks, colorVectors, boxTitles,
   }
 
   # Dynamically reduce label clutter
-  if (length(ticks) > 6) {
+  if (length(ticks) > 8) {
     tickLabels <- ifelse(seq_along(ticks) %% 2 == 1,
                          format(ticks, digits = 2), "")
   } else {
