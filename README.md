@@ -1,6 +1,6 @@
 # plotting library for mrwater outputs
 
-R package **mrwaterplots**, version **1.1.4**
+R package **mrwaterplots**, version **1.1.5**
 
 [![CRAN status](https://www.r-pkg.org/badges/version/mrwaterplots)](https://cran.r-project.org/package=mrwaterplots) [![R build status](https://github.com/pik-piam/mrwaterplots/workflows/check/badge.svg)](https://github.com/pik-piam/mrwaterplots/actions) [![codecov](https://codecov.io/gh/pik-piam/mrwaterplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/mrwaterplots) [![r-universe](https://pik-piam.r-universe.dev/badges/mrwaterplots)](https://pik-piam.r-universe.dev/builds)
 
@@ -38,7 +38,7 @@ In case of questions / problems please contact Felicitas Beier <beier@pik-potsda
 
 To cite package **mrwaterplots** in publications use:
 
-Beier F, Heinke J, von Jeetze P, Dietrich J (2025). "mrwaterplots: plotting library for mrwater outputs." Version: 1.1.4, <https://github.com/pik-piam/mrwaterplots>.
+Beier F, Heinke J, von Jeetze P, Dietrich J (2025). "mrwaterplots: plotting library for mrwater outputs." Version: 1.1.5, <https://github.com/pik-piam/mrwaterplots>.
 
 A BibTeX entry for LaTeX users is
 
@@ -46,9 +46,9 @@ A BibTeX entry for LaTeX users is
 @Misc{,
   title = {mrwaterplots: plotting library for mrwater outputs},
   author = {Felicitas Beier and Jens Heinke and Patrick {von Jeetze} and Jan Philipp Dietrich},
-  date = {2025-07-06},
+  date = {2025-07-07},
   year = {2025},
   url = {https://github.com/pik-piam/mrwaterplots},
-  note = {Version: 1.1.4},
+  note = {Version: 1.1.5},
 }
 ```
