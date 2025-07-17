@@ -6,7 +6,7 @@
 #'
 #' @author  Felicitas Beier
 #' @md
-#' @seealso [downloadSource()]
+#' @seealso [madrat::downloadSource()]
 #' @examples
 #' \dontrun{
 #' a <- downloadSource("NaturalEarth")

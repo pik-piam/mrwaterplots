@@ -16,7 +16,7 @@ a <- downloadSource("NaturalEarth")
 
 }
 \seealso{
-\code{\link[=downloadSource]{downloadSource()}}
+\code{\link[madrat:downloadSource]{madrat::downloadSource()}}
 }
 \author{
 Felicitas Beier
