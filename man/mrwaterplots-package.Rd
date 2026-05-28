@@ -20,6 +20,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Felicitas Beier \email{beier@pik-potsdam.de}
   \item Jens Heinke \email{heinke@pik-potsdam.de}
   \item Patrick von Jeetze \email{vjeetze@pik-potsdam.de}
   \item Jan Philipp Dietrich \email{dietrich@pik-potsdam.de}

@@ -10,3 +10,6 @@
 ^.*\.zenodo.json$
 ^Makefile$
 ^.*CITATION.cff$
+^\.positai$
+^\.claude$
+^_pkgdown\.yml$

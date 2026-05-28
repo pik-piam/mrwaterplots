@@ -80,7 +80,7 @@ plotBivariateMap <- function(x, y,
       upperright <- "#762a83"
       lowerleft <- "white"
       lowerright <- "#1b7837"
-    # Style 2-5 from http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/
+      # Style 2-5 from http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/
     } else if (bivariatelegendstyle == 2) {
       upperleft <- "#BE64AC"
       upperright <- "#3B4994"
@@ -146,12 +146,12 @@ plotBivariateMap <- function(x, y,
                                   labCol = "black") {
     stopifnot(nrow(cmat) == ncol(cmat))
     breaks <- nrow(cmat)
-    legendDF <- cmat %>%
-                   as.data.frame() %>%
-                     tidyr::pivot_longer(cols = tidyselect::everything()) %>%
-                       dplyr::mutate(y = rep(1:breaks, times = breaks),
-                                     x = rep(1:breaks, each = breaks))
-    legendPLOT <- legendDF %>%
+    legendDF <- cmat |>
+      as.data.frame() |>
+      tidyr::pivot_longer(cols = tidyselect::everything()) |>
+      dplyr::mutate(y = rep(1:breaks, times = breaks),
+                    x = rep(1:breaks, each = breaks))
+    legendPLOT <- legendDF |>
       ggplot2::ggplot(ggplot2::aes(x, y, fill = legendDF$value)) +
       ggplot2::geom_raster() +
       ggplot2::scale_fill_identity() +
